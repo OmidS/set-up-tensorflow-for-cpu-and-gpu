@@ -20,3 +20,30 @@ This webstie has all the details you want for this step (and STEP 8). Simply scr
 * CUDA: 10.1.105_418.96
 * cuDNN: 7.5.0.56
 * Python 3.7
+
+## STEP 4. Finding the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
+This was genuinely the hardest step. I did not know this was the case but I learnt it the hard way. The thing is to set up tensorflow-gpu on your machine you need CUDA and cuDNN and you cannot just install any aritrary version of tensorflow on your PC or download any arbitrary version of CUDA from the website. These four components should be compatible. There is a GREAT github repo (better than tensorflow documentation or any other documentation I found) for this:
+* https://github.com/fo40225/tensorflow-windows-wheel
+
+This webstie has all the details you want for this step (and STEP 8). Simply scroll down and find your quadruple :). I chose this setting
+* Tensorflow 1.13.1
+* CUDA: 10.1.105_418.96
+* cuDNN: 7.5.0.56
+* Python 3.7
+
+## STEP 5. Download visual studio express
+Honestly, I'm not sure how important this step is or even it is necessary (it is according to [Dr. Joanne Kitson](https://towardsdatascience.com/installing-tensorflow-with-cuda-cudnn-and-gpu-support-on-windows-10-60693e46e781)). So download visual studio express from [here](https://visualstudio.microsoft.com/vs/express/). For ecample, I downloaded visual studio express 2019 latest version at the time of writing.
+
+## STEP 6. Download and install CUDA
+According to STEP 4, download the CUDA version you need from [here](https://developer.nvidia.com/cuda-downloads). If you don't want the latest release, go to "Legacy Releases". You then need to Install CUDA, it is very straightforward. Just make sure to remember the install path as you need it for STEP 6. Say our CUDA path is "PATH/TO/CUDA". For example, in my case it was, "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1".
+
+## STEP 6. Download cuDNN and copy files into CUDA folder
+According to STEP 4, download the cuDNN version you need from [here](https://developer.nvidia.com/cudnn). You now have downloaded a zip file, just unzip it. We then need to copy 4 files into the CUDA folder from STEP5. 
+
+*
+*
+*
+*
+
+
+
