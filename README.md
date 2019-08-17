@@ -1,6 +1,6 @@
 # How to set up tensorflow (cpu and gpu) on your machine (recommended: on virtual environment)
 I tried setting up tensorflow for one of my projects and it was worse than what I expected. There were a lot of threads on the internet which I found useuful but unfortunately they did not work for me (don't get me wrong, they all helped me to come up with a clean way to set up tensorflow to work compatibly on my gpu :P). So I decided to create this document for myself and anyone else who wants to set up tensorflow for their gpu but find themselves lost at the beginning. I hope this helps and saves you a couple days of searching on the internet and asking around :). At the end, I will put all the threads which helped me writing this. You may find them useful for your case.
-These all worked fine for me and I have a machine with Windows 10, my gpu is NVIDIA GEFORCE RTX 2080 Ti and I set this up on python 3.7.
+These all worked fine for me and I have a machine with Windows 10, my gpu is NVIDIA GEFORCE RTX 2080 Ti and I set this up on python 3.7. If you want to run tensorflow on cpu just go to STEP 12.
 
 ## STEP 1. Install python on your machine 
 You need to install python on your machine. It has to be 64-bit python, otherwise you will get the error "not a supported wheel on this platform" when trying to install tensorflow package. For example, I have python 2.7, python 3.7 installed on my PC.
@@ -37,13 +37,60 @@ Honestly, I'm not sure how important this step is or even it is necessary (it is
 ## STEP 6. Download and install CUDA
 According to STEP 4, download the CUDA version you need from [here](https://developer.nvidia.com/cuda-downloads). If you don't want the latest release, go to "Legacy Releases". You then need to Install CUDA, it is very straightforward. Just make sure to remember the install path as you need it for STEP 6. Say our CUDA path is "PATH/TO/CUDA". For example, in my case it was, "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1".
 
-## STEP 6. Download cuDNN and copy files into CUDA folder
-According to STEP 4, download the cuDNN version you need from [here](https://developer.nvidia.com/cudnn). You now have downloaded a zip file, just unzip it. We then need to copy 4 files into the CUDA folder from STEP5. 
+## STEP 7. Download cuDNN and copy files into CUDA folder
+According to STEP 4, download the cuDNN version you need from [here](https://developer.nvidia.com/cudnn). You now have downloaded a zip file, just unzip it and. I call this folder "cuDNN/CUDA" just to be different from "PATH/TO/CUDA" We then need to copy 4 files into the CUDA folder from STEP5. 
 
-*
-*
-*
-*
+* Copy "cuDNN/CUDA/bin/cudnn64_7.dll" to "PATH/TO/CUDA/bin"
+* Copy "cuDNN/CUDA/include/cudnn.h" to "PATH/TO/CUDA/include"
+* Copy "cuDNN/CUDA/lib/x64/cudnn.lib" to "PATH/TO/CUDA/lib/x64"
 
+## STEP 8. Make sure your environment variables are correct
 
+Make sure CUDA system Variables variables are correct in "Control Panel ->Advanced System settings ->Environment Variables..." (the bottoom half window titled "System Variables"). The correct environment variables should look like this (if not just add them):
 
+* Variable: CUDA_PATH   Value:  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1
+* Variable: NVCUDASAMPLES_ROOT   Value:  C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.1
+* Variable: PATH   one of Value:  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
+* Variable: PATH   one of Value:  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
+
+## STEP 9. Set up virtual environment for your project
+Set up a virtual environment for your project. It should use a 64-bit python. I have a document teaching seetting up a virtual env on:
+
+* [How to set up a virtual environment?](https://github.com/SalarAbb/Set-up-virtualenv-for-python)
+
+Let's say your virtual environment is at "PATH/TO/VIRTUALENVS/PROJECT".
+
+## STEP 10. Install correct verison of tensorflow package on your virtual environment
+After activiating your virtual environment, you want to install tensorflow. Probably pip install tensorflow-gpu=XXX won't work (for me it didn't). Again, we will use this GREAT github repo at STEP 4 to download the corresponding wheel file (filename.whl). This github repo has all the .whl files for all tensorflow versions (both cpu and gpu). for example the .whl file I used was [here](https://github.com/fo40225/tensorflow-windows-wheel/tree/master/1.13.1/py37/GPU/cuda101cudnn75sse2).
+
+Let's say the .whl file is at "PATH\TO\WHEEL\filename.whl". You just need to do these:
+* activate your virtual environment (read [here](https://github.com/SalarAbb/Set-up-virtualenv-for-python)). You will see the ('PROJECT') icon next to your command line.
+* go to .whl file folder:
+'''
+cd "PATH\TO\WHEEL"
+'''
+* pip install filename.whl
+
+Now tensorflow with gpu is installed on your machine. 
+
+## STEP 11. How to make sure Tensorflow is using your gpu:
+Just run the following commands on python. It will shows your gpu model and its memory and you will get the answer. I got this piece of code from
+'''
+import tensorflow as tf
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
+with tf.device('/gpu:0'):
+    a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+    b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+    c = tf.matmul(a, b)
+
+with tf.Session() as sess:
+    print (sess.run(c))
+'''
+I hope this works after 10 (10!) STEPS.
+## STEP 12. Take a moment to digest how it was easier to set up tensorflow for CPU
+To set up tensorflow on your cpu and virtual environment you only need these steps (make sure to create different virtual environments for cpu and gpu version if you would like to test both):
+* STEP 1
+* STEP 9
+* STEP 10
