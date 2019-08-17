@@ -69,16 +69,18 @@ After activiating your virtual environment, you want to install tensorflow. Prob
 Let's say the .whl file is at "PATH\TO\WHEEL\filename.whl". You just need to do these:
 * activate your virtual environment (read [here](https://github.com/SalarAbb/Set-up-virtualenv-for-python)). You will see the ('PROJECT') icon next to your command line.
 * go to .whl file folder:
-'''
+```
 cd "PATH\TO\WHEEL"
-'''
-* pip install filename.whl
-
+```
+* Install the .whl file with pip:
+```
+pip install filename.whl
+```
 Now tensorflow with gpu is installed on your machine. if you don't use python 64 bit you will get an error like ('not a supported wheel on this platform'). Imagine getting this error, after 10 steps including buying a gpu, which was the case for me until I found out the issue.
 
 ## STEP 11. How to make sure Tensorflow is using your gpu:
 Just run the following commands on python. It will shows your gpu model and its memory and you will get the answer. I got this piece of code from
-'''
+```
 import tensorflow as tf
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
@@ -90,7 +92,7 @@ with tf.device('/gpu:0'):
 
 with tf.Session() as sess:
     print (sess.run(c))
-'''
+```
 I hope this works after 10 (10!) STEPS.
 ## STEP 12. Take a moment to digest how it was easier to set up tensorflow for CPU
 To set up tensorflow on your cpu and virtual environment you only need these steps (make sure to create different virtual environments for cpu and gpu version if you would like to test both):
