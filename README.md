@@ -74,7 +74,9 @@ Just run the following commands on python. It will shows your gpu model and its 
 ```
 import tensorflow as tf
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
+os.environ['CUDA_VISIBLE_DEVICES'] = '0' # You need to tell CUDA
+# which gpu you'd like to use. if you have one gpu probably your gpu is '0'
 
 with tf.device('/gpu:0'):
     a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
