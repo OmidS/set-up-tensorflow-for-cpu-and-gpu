@@ -14,34 +14,25 @@ Well if you want to set up tensorflow on your gpu you need to have a gpu first. 
 ## Step 3. Install drivers for your gpu
 I used https://www.geforce.com/drivers to install my drivers. For example, my driver's version is 431.60. You can check your driver's version by right clicking on the screen on your desktop and choosing "NVIDIA control panel".
 
-## Step 4. Finding the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
-This was genuinely the hardest step. I did not know this was the case but I learnt it the hard way. The thing is to set up tensorflow-gpu on your machine you need CUDA and cuDNN and you cannot just install any aritrary version of tensorflow on your PC or download any arbitrary version of CUDA from the website. These four components should be compatible. There is a GREAT github repo (better than tensorflow documentation or any other documentation I found) for this:
-* https://github.com/fo40225/tensorflow-windows-wheel
+## Step 4. Find the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
+This was genuinely the hardest step. I did not know this was the case but I learnt it the hard way. The thing is to set up tensorflow-gpu on your machine you need CUDA and cuDNN and you cannot just install any aritrary version of tensorflow on your PC or download/install any random version of CUDA from the website. These four components should be compatible. There is a GREAT github repo (better than tensorflow documentation or any other documentation I found, I will call it the GREAT github repo) for this:
+* [The great github repo](https://github.com/fo40225/tensorflow-windows-wheel)
 
-This webstie has all the details you want for this step (and Step 8). Simply scroll down and find your quadruple :). I chose this setting
-* Tensorflow 1.13.1
-* CUDA: 10.1.105_418.96
-* cuDNN: 7.5.0.56
-* Python 3.7
+This repo has all the details you want for this step (and Step 8). Simply scroll down and find your quadruple :). I chose these settings:
 
-## Step 4. Finding the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
-This was genuinely the hardest step. I did not know this was the case but I learnt it the hard way. The thing is to set up tensorflow-gpu on your machine you need CUDA and cuDNN and you cannot just install any aritrary version of tensorflow on your PC or download any arbitrary version of CUDA from the website. These four components should be compatible. There is a GREAT github repo (better than tensorflow documentation or any other documentation I found) for this:
-* [The GREAT github repo](https://github.com/fo40225/tensorflow-windows-wheel)
-
-This webstie has all the details you want for this step (and Step 8). Simply scroll down and find your quadruple :). I chose this setting
 * Tensorflow 1.13.1
 * CUDA: 10.1.105_418.96
 * cuDNN: 7.5.0.56
 * Python 3.7
 
 ## Step 5. Download visual studio express
-Honestly, I'm not sure how important this step is or even it is necessary (it is according to [Dr. Joanne Kitson](https://towardsdatascience.com/installing-tensorflow-with-cuda-cudnn-and-gpu-support-on-windows-10-60693e46e781)). So download visual studio express from [here](https://visualstudio.microsoft.com/vs/express/). For ecample, I downloaded visual studio express 2019 latest version at the time of writing.
+Honestly, I'm not sure how important this step is or even it is necessary (looks like it is according to [Dr. Joanne Kitson](https://towardsdatascience.com/installing-tensorflow-with-cuda-cudnn-and-gpu-support-on-windows-10-60693e46e781)). So download visual studio express from [here](https://visualstudio.microsoft.com/vs/express/). For example, I downloaded visual studio express 2019 latest version at the time of writing.
 
 ## Step 6. Download and install CUDA
-According to Step 4, download the CUDA version you need from [here](https://developer.nvidia.com/cuda-downloads). If you don't want the latest release, go to "Legacy Releases". You then need to Install CUDA, it is very straightforward. Just make sure to remember the install path as you need it for Step 6. Say our CUDA path is "PATH/TO/CUDA". For example, in my case it was, "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1".
+According to Step 4, download the CUDA version you need from [here](https://developer.nvidia.com/cuda-downloads). If you don't want the latest release, go to "Legacy Releases". You then need to Install CUDA, it is very straightforward. Just make sure to remember the installation path as you need it for Step 6. Say your CUDA path is "PATH/TO/CUDA". For example, in my case it was, "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1".
 
 ## Step 7. Download cuDNN and copy files into CUDA folder
-According to Step 4, download the cuDNN version you need from [here](https://developer.nvidia.com/cudnn). You now have downloaded a zip file, just unzip it and. I call this folder "cuDNN/CUDA" just to be different from "PATH/TO/CUDA" We then need to copy 4 files into the CUDA folder from Step 5 
+According to Step 4, download the cuDNN version you need from [here](https://developer.nvidia.com/cudnn). You now have downloaded a zip file, just unzip it; I call this folder "cuDNN/CUDA" just to be different from "PATH/TO/CUDA" We then need to copy 3 files into the CUDA installation path from Step 5:
 
 * Copy "cuDNN/CUDA/bin/cudnn64_7.dll" to "PATH/TO/CUDA/bin"
 * Copy "cuDNN/CUDA/include/cudnn.h" to "PATH/TO/CUDA/include"
@@ -57,14 +48,14 @@ Make sure CUDA system Variables variables are correct in "Control Panel ->Advanc
 * Variable: PATH   one of Value:  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
 
 ## Step 9. Set up virtual environment for your project
-Set up a virtual environment for your project. It should use a 64-bit python. I have a document teaching seetting up a virtual env on:
+Set up a virtual environment for your project. It should use a 64-bit python. I have a document for this:
 
 * [How to set up a virtual environment?](https://github.com/SalarAbb/Set-up-virtualenv-for-python)
 
 Let's say your virtual environment is at "PATH/TO/VIRTUALENVS/PROJECT".
 
 ## Step 10. Install correct verison of tensorflow package on your virtual environment
-After activiating your virtual environment, you want to install tensorflow. Probably pip install tensorflow-gpu=XXX won't work (for me it didn't). Again, we will use this GREAT github repo at Step 4 to download the corresponding wheel file (filename.whl). This github repo has all the .whl files for all tensorflow versions (both cpu and gpu). for example the .whl file I used was [here](https://github.com/fo40225/tensorflow-windows-wheel/tree/master/1.13.1/py37/GPU/cuda101cudnn75sse2).
+After activiating your virtual environment, you want to install tensorflow. Probably pip install tensorflow-gpu=XXX won't work (for me it didn't). Again, we will use the GREAT github repo at Step 4 to download the corresponding wheel file (filename.whl). This github repo has all the .whl files for all tensorflow versions you may need (both cpu and gpu). For example the .whl file I used was [here](https://github.com/fo40225/tensorflow-windows-wheel/tree/master/1.13.1/py37/GPU/cuda101cudnn75sse2).
 
 Let's say the .whl file is at "PATH\TO\WHEEL\filename.whl". You just need to do these:
 * activate your virtual environment (read [here](https://github.com/SalarAbb/Set-up-virtualenv-for-python)). You will see the ('PROJECT') icon next to your command line.
@@ -78,7 +69,7 @@ pip install filename.whl
 ```
 Now tensorflow with gpu is installed on your machine. if you don't use python 64 bit you will get an error like ('not a supported wheel on this platform'). Imagine getting this error, after 10 steps including buying a gpu, which was the case for me until I found out the issue.
 
-## Step 11. How to make sure Tensorflow is using your gpu:
+## Step 11. Make sure Tensorflow is using the gpu:
 Just run the following commands on python. It will shows your gpu model and its memory and you will get the answer. I got this piece of code from
 ```
 import tensorflow as tf
