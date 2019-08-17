@@ -11,7 +11,7 @@ You need to install python on your machine. It has to be 64-bit python, otherwis
 ## Step 2. Buy a GPU
 Well if you want to set up tensorflow on your GPU you need to have a GPU first. This is the most expensive yet the most straightforward step. For example, I got the NVIDIA GEFORCE RTX 2080 Ti. All the following is assuming that you have a NVIDIA gpu.
 
-## Step 3. Install drivers for your gpu
+## Step 3. Install drivers for your GPU
 I used https://www.geforce.com/drivers to install my drivers. For example, my driver's version is 431.60. You can check your driver's version by right clicking on the screen on your desktop and choosing "NVIDIA control panel".
 
 ## Step 4. Find the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
@@ -25,7 +25,7 @@ This repo has all the details you want for this step (and Step 8). Simply scroll
 * cuDNN: 7.5.0.56
 * Python 3.7
 
-## Step 5. Download visual studio express
+## Step 5. Download Visual Studio Express
 Honestly, I'm not sure how important this step is or even it is necessary (looks like it is according to [Dr. Joanne Kitson](https://towardsdatascience.com/installing-tensorflow-with-cuda-cudnn-and-gpu-support-on-windows-10-60693e46e781)). So download visual studio express from [here](https://visualstudio.microsoft.com/vs/express/). For example, I downloaded visual studio express 2019 latest version at the time of writing.
 
 ## Step 6. Download and install CUDA
