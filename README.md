@@ -1,6 +1,8 @@
 # How to set up tensorflow (cpu and gpu) on your machine (recommended: on virtual environment)
 I tried setting up tensorflow for one of my projects and it was worse than what I expected. There were a lot of threads on the internet which I found useuful but unfortunately they did not work for me (don't get me wrong, they all helped me to come up with a clean way to set up tensorflow to work compatibly on my gpu :P). So I decided to create this document for myself and anyone else who wants to set up tensorflow for their gpu but find themselves lost at the beginning. I hope this helps and saves you a couple days of searching on the internet and asking around :). At the end, I will put all the threads which helped me writing this. You may find them useful for your case.
-These all worked fine for me and I have a machine with Windows 10, my gpu is NVIDIA GEFORCE RTX 2080 Ti and I set this up on python 3.7. If you want to run tensorflow on cpu just go to STEP 12.
+These all worked fine for me and I have a machine with Windows 10, my gpu is NVIDIA GEFORCE RTX 2080 Ti and I set this up on python 3.7. 
+
+If you want to run tensorflow on cpu just go to STEP 12.
 
 ## STEP 1. Install python on your machine 
 You need to install python on your machine. It has to be 64-bit python, otherwise you will get the error "not a supported wheel on this platform" when trying to install tensorflow package. For example, I have python 2.7, python 3.7 installed on my PC.
@@ -23,7 +25,7 @@ This webstie has all the details you want for this step (and STEP 8). Simply scr
 
 ## STEP 4. Finding the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
 This was genuinely the hardest step. I did not know this was the case but I learnt it the hard way. The thing is to set up tensorflow-gpu on your machine you need CUDA and cuDNN and you cannot just install any aritrary version of tensorflow on your PC or download any arbitrary version of CUDA from the website. These four components should be compatible. There is a GREAT github repo (better than tensorflow documentation or any other documentation I found) for this:
-* https://github.com/fo40225/tensorflow-windows-wheel
+* [The GREAT github repo](https://github.com/fo40225/tensorflow-windows-wheel)
 
 This webstie has all the details you want for this step (and STEP 8). Simply scroll down and find your quadruple :). I chose this setting
 * Tensorflow 1.13.1
@@ -94,3 +96,10 @@ To set up tensorflow on your cpu and virtual environment you only need these ste
 * STEP 1
 * STEP 9
 * STEP 10
+
+
+## References that helped me to understand things better and write this
+* [A Medium post](https://towardsdatascience.com/installing-tensorflow-with-cuda-cudnn-and-gpu-support-on-windows-10-60693e46e781)
+* [The GREAT github repo](https://github.com/fo40225/tensorflow-windows-wheel)
+* [A stackoverflow page](https://stackoverflow.com/questions/45316569/how-to-install-tensorflow-on-python-2-7-on-windows)
+* [Other stackoverflow post which helped my minor problems, which I unfortunatel forgot their direct pages](https://stackoverflow.com)
