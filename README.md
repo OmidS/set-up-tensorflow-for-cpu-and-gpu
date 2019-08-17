@@ -6,7 +6,7 @@ These steps worked fine for me and I have a machine with Windows 10, my gpu is N
 If you want to run tensorflow on cpu just go to STEP 12.
 
 ## STEP 1. Install python on your machine 
-You need to install python on your machine. It has to be 64-bit python, otherwise you will get the error "not a supported wheel on this platform" when trying to install tensorflow package. For example, I have python 2.7, python 3.7 installed on my PC.
+You need to install python on your machine. It has to be 64-bit python, otherwise you will get the error "not a supported wheel on this platform" when trying to install tensorflow package at STEP 10. For example, I have python 2.7, python 3.7 installed on my PC.
 
 ## STEP 2. Buy a GPU
 Well if you want to set up tensorflow on your gpu you need to have a gpu first. This is the most expensive yet the most straightforward step. For example, I got the NVIDIA GEFORCE RTX 2080 Ti. All the following is assuming that you have a NVIDIA gpu.
@@ -74,7 +74,7 @@ cd "PATH\TO\WHEEL"
 '''
 * pip install filename.whl
 
-Now tensorflow with gpu is installed on your machine. 
+Now tensorflow with gpu is installed on your machine. if you don't use python 64 bit you will get an error like ('not a supported wheel on this platform'). Imagine getting this error, after 10 steps including buying a gpu, which was the case for me until I found out the issue.
 
 ## STEP 11. How to make sure Tensorflow is using your gpu:
 Just run the following commands on python. It will shows your gpu model and its memory and you will get the answer. I got this piece of code from
