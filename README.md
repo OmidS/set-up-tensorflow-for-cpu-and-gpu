@@ -8,7 +8,7 @@ If you want to run tensorflow on cpu just go to STEP 12.
 You need to install python on your machine. It has to be 64-bit python, otherwise you will get the error "not a supported wheel on this platform" when trying to install tensorflow package. For example, I have python 2.7, python 3.7 installed on my PC.
 
 ## STEP 2. Buy a GPU
-Well if you want to set up tensorflow on your gpu you need to have a gpu first. This is the most expensive yet the most straightforward step. For example, I got the NVIDIA GEFORCE RTX 2080 Ti. So all the following is assuming that you have a NVIDIA gpu.
+Well if you want to set up tensorflow on your gpu you need to have a gpu first. This is the most expensive yet the most straightforward step. For example, I got the NVIDIA GEFORCE RTX 2080 Ti. All the following is assuming that you have a NVIDIA gpu.
 
 ## STEP 3. Install drivers for your gpu
 I used https://www.geforce.com/drivers to install my drivers. For example, my driver's version is 431.60. You can check your driver's version by right clicking on the screen on your desktop and choosing "NVIDIA control panel".
