@@ -16,7 +16,7 @@ I used https://www.geforce.com/drivers to install my drivers. For example, my dr
 
 ## Step 4. Find the compatible quadruple (tensorflow version, CUDA version, cuDNN version, python version) for your case
 This was genuinely the hardest step. I did not know this was the case but I learnt it the hard way. The thing is to set up tensorflow-GPU on your machine you need CUDA and cuDNN and you cannot just install any aritrary version of tensorflow on your PC or download/install any random version of CUDA/cuDNN from the website. These four components (tensorflow version, CUDA version, cuDNN version, python version) should be compatible. There is a GREAT github repo (better than tensorflow documentation or any other documentation I found, I will call it "the GREAT github repo") for this:
-* [The great github repo](https://github.com/fo40225/tensorflow-windows-wheel)
+* [The GREAT github repo](https://github.com/fo40225/tensorflow-windows-wheel)
 
 This repo has all the details you want for this step (and Step 8). Simply scroll down and find your quadruple :).For example, I chose these settings:
 
@@ -89,7 +89,7 @@ with tf.Session() as sess:
 I hope this works after 10 steps (10!).
 
 ## Step 12. Take a moment to digest how it was easier to set up tensorflow for CPU
-To set up tensorflow on your CPU and virtual environment you only need these steps (make sure to create different virtual environments for CPU and GPU version if you would like to test both):
+To set up tensorflow on your CPU and virtual environment, you only need the following steps (make sure to create different virtual environments for CPU and GPU version if you would like to test both):
 * Step 1
 * Step 9
 * Step 10
