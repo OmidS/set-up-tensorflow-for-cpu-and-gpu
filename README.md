@@ -39,8 +39,7 @@ According to Step 4, download the cuDNN version you need from [here](https://dev
 * Copy "cuDNN/CUDA/lib/x64/cudnn.lib" to "PATH/TO/CUDA/lib/x64"
 
 ## Step 8. Make sure your environment variables are correct
-
-Make sure CUDA system Variables variables are correct in "Control Panel ->Advanced System settings ->Environment Variables..." (the bottoom half window titled "System Variables"). The correct environment variables should look like this (if not just add them):
+Make sure CUDA system Variables variables are correct in "Control Panel ->Advanced System settings ->Environment Variables..." (the bottom half window titled "System Variables"). The correct environment variables should look like this (if not just add them):
 
 * Variable: CUDA_PATH   Value:  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1
 * Variable: NVCUDASAMPLES_ROOT   Value:  C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.1
@@ -58,8 +57,9 @@ Let's say your virtual environment is at "PATH/TO/VIRTUALENVS/PROJECT".
 After activiating your virtual environment, you want to install tensorflow. Probably pip install tensorflow-gpu=XXX won't work (for me it didn't). Again, we will use the GREAT github repo at Step 4 to download the corresponding wheel file (filename.whl). This github repo has all the .whl files for all tensorflow versions you may need (both CPU and GPU). For example the .whl file I used was [here](https://github.com/fo40225/tensorflow-windows-wheel/tree/master/1.13.1/py37/GPU/cuda101cudnn75sse2).
 
 Let's say the .whl file is at "PATH\TO\WHEEL\filename.whl". You just need to do these:
-* activate your virtual environment (read [here](https://github.com/SalarAbb/Set-up-virtualenv-for-python)). You will see the ('PROJECT') icon next to your command line.
-* go to .whl file folder:
+
+* Activate your virtual environment (read [here](https://github.com/SalarAbb/Set-up-virtualenv-for-python)). You will see the ('PROJECT') icon next to your command line.
+* Go to .whl file folder:
 ```
 cd "PATH\TO\WHEEL"
 ```
@@ -93,6 +93,7 @@ To set up tensorflow on your CPU and virtual environment you only need these ste
 * Step 1
 * Step 9
 * Step 10
+
 
 
 ## References which helped me to understand things better and write this
