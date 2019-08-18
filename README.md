@@ -69,7 +69,7 @@ pip install filename.whl
 ```
 Now tensorflow with GPU is installed on your machine. if you don't use python 64 bit you will get an error like ('not a supported wheel on this platform'). Imagine getting this error, after 10 steps including buying a gpu, which was the case for me until I found out the issue.
 
-## Step 11. Make sure Tensorflow is using the gpu
+## Step 11. Make sure Tensorflow is using the GPU
 Just run the following commands on python. It will shows your GPU model and its memory and you will get the answer. I got this piece of code from
 ```
 import tensorflow as tf
