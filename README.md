@@ -1,7 +1,7 @@
 # How to set up Tensorflow for GPU and CPU (recommended: on virtual environment)
-I tried setting up Tensorflow for one of my projects and it was worse than what I expected. There were a lot of threads on the internet which I found useful but unfortunately they did not work for me (don't get me wrong, they all helped me to come up with a clean way to set up Tensorflow to work fine with my GPU :P). So I decided to create this document for myself and anyone else who wants to set up Tensorflow for their GPU but find themselves lost at the beginning. I hope this helps and saves you a couple days of searching on the internet and asking around :). At the end, I will put all the threads which helped me writing this. You may find them useful for your case.
+I also maintain this post on Medium [here](https://medium.com/@salixabb/how-to-set-up-tensorflow-for-gpu-and-cpu-on-windows-10-recommended-on-virtual-environment-4fd937944674). I tried setting up Tensorflow for one of my projects and it was worse than what I expected. There were a lot of threads on the internet which I found useful but unfortunately they did not work for me (don't get me wrong, they all helped me to come up with a clean way to set up Tensorflow to work fine with my GPU :P). So I decided to create this document for myself and anyone else who wants to set up Tensorflow for their GPU but find themselves lost at the beginning. I hope this helps and saves you a couple days of searching on the internet and asking around :). At the end, I will put all the threads which helped me writing this. You may find them useful for your case.
 
-These steps worked fine for me and I have a machine with Windows 10, my GPU is NVIDIA GEFORCE RTX 2080 Ti and I set this up on python 3.7 (time of writing: 8/17/2019).
+These steps worked fine for me and I have a machine with Windows 10, my GPU is NVIDIA GEFORCE RTX 2080 Ti and I set this up on python 3.7 (time of writing: 8/17/2019). 
 
 If you want to run Tensorflow on CPU just go to Step 12.
 
@@ -90,10 +90,15 @@ I hope this works after 10 steps (10!).
 
 ## Step 12. Take a moment to digest how it was easier to set up Tensorflow for CPU
 To set up Tensorflow on your CPU and virtual environment, you only need the following steps (make sure to create different virtual environments for CPU and GPU version if you would like to test both):
-* Step 1
-* Step 9
-* Step 10
-
+* Make sure you have 64-bit python installed on your machine
+* Install Tensorflow using pip:
+```
+pip install tensorflow
+```
+* If you want custom version of Tensorflow use the following command:
+```
+pip install tensorflow==1.3.0
+```
 
 
 ## References which helped me to understand things better and write this
