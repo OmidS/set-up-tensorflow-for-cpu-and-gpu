@@ -72,7 +72,7 @@ Now Tensorflow with GPU is installed on your machine. if you don't use python 64
 ## Step 11. Make sure Tensorflow is using the GPU
 Just run the following commands on python. It will show your GPU model, its memory and you will get the answer:
 ```
-import Tensorflow as tf
+import tensorflow as tf
 import os
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '0' # You need to tell CUDA
